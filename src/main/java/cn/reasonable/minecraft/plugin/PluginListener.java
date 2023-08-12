@@ -16,11 +16,14 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.*;
 import org.bukkit.event.inventory.CraftItemEvent;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerFishEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemBreakEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.EntityEquipment;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffectType;
 
@@ -472,5 +475,40 @@ public class PluginListener implements Listener {
             }
         }
     }
+    @EventHandler
+    public void onEntityDeathDESERT(EntityDeathEvent event) {
+        Entity entity = event.getEntity();
+        // 检查死亡的实体是否是流髑
+        if (entity instanceof Husk) {
+            // 检查这只流髑是否在沙漠中被玩家杀死
+            if (entity.getLocation().getBlock().getBiome() == Biome.DESERT && event.getEntity().getKiller() instanceof Player) {
+                Player player = event.getEntity().getKiller();
+                // 在这里执行您想要的操作，例如发送消息给玩家
+                // 你的内容
+            }
+        }
+    }
+    @EventHandler
+    public void onInventoryClickBLUE_ORCHID(InventoryClickEvent event) {
+        Inventory inventory = event.getInventory();
+        // 检查玩家是否操作背包
+        if (inventory.getType() == InventoryType.PLAYER) {
+            Player player = (Player) event.getWhoClicked();
+            // 检查玩家背包中的物品是否都是数量为1的兰花
+            boolean allBlueOrchids = true;
+            for (ItemStack item : inventory.getContents()) {
+                if (item == null || item.getType() != Material.BLUE_ORCHID || item.getAmount() != 1) {
+                    allBlueOrchids = false;
+                    break;
+                }
+            }
+            if (allBlueOrchids) {
+                // 在这里执行您想要的操作，例如发送消息给玩家
+                // 你的内容
+            }
+        }
+    }
+
+
 
 }
