@@ -11,7 +11,7 @@ class PluginMain : JavaPlugin() {
     }
 
     override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<String>): Boolean {
-        if (command.name.equals("listAllChallenge") and (sender is Player)){
+        if ((command.name == "listAllChallenge") and (sender is Player)){
             if (args.size>1){
                 sender.sendMessage("仅仅接受一个参数呢!")
             }else if (args[0].toInt() !in 1..5){
