@@ -16,8 +16,6 @@ build
 /.gradle/8.2/gc.properties
 /.gradle/vcs-1/gc.properties
 /.idea/gradle.xml
-/gradle/wrapper/gradle-wrapper.jar
-/gradle/wrapper/gradle-wrapper.properties
 /.idea/jarRepositories.xml
 /.gradle/8.2/fileChanges/last-build.bin
 /.idea/misc.xml
