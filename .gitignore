@@ -24,3 +24,7 @@ build
 /.gradle/buildOutputCleanup/outputFiles.bin
 /project.json
 /.idea/vcs.xml
+/.gradle/8.2/fileHashes/resourceHashesCache.bin
+/.gradle/8.2/checksums/sha1-checksums.bin
+/.idea/kotlinc.xml
+/.gradle/8.2/checksums/md5-checksums.bin
